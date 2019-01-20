@@ -1,6 +1,7 @@
 export default {
   route: {
     dashboard: 'Dashboard',
+    device: 'Device Manage',
     introduction: 'Introduction',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -84,6 +85,36 @@ export default {
     thirdparty: 'Or connect with',
     thirdpartyTips:
       'Can not be simulated on local, so please combine you own business simulation! ! !'
+  },
+  dashboard: {
+    welcome: 'Nice to meet you!',
+    deviceCount: 'DEVICE'
+  },
+  device: {
+    id: 'ID',
+    sn: 'SN',
+    state: 'State',
+    name: 'Name',
+    type: 'Type',
+    area: 'Area',
+    version: 'Version',
+    operate: 'Operate',
+    open: 'Open',
+    unbind: 'Unbind',
+    all: 'ALL',
+    online: 'ONLINE',
+    offline: 'OFFLINE',
+    search: 'Search',
+    export: 'Export',
+    fetchDeviceListFailedTips: 'Seatch device failed！',
+    confirmUnbindTitle: 'Confirm',
+    confirmUnbindTips: 'This operation will unbind this device, continue?',
+    confirmButtonText: 'OK',
+    cancelButtonText: 'Cancel',
+    unbindSucceedTips: 'Unbind succeed!',
+    unbindFailedTips: 'Unbind failed!',
+    cancelUnbindTips: 'Cancel unbind!',
+    exportFailedTips: 'Export failed!'
   },
   documentation: {
     documentation: 'Documentation',

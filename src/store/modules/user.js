@@ -1,10 +1,14 @@
-import { login, logout, getInfo } from '@/api/login'
+import { login, getInfo } from '@/api/login'
 // import { getToken, setToken, removeToken } from '@/utils/auth'
 import { getToken, removeToken } from '@/utils/auth'
 import crypto from 'crypto'
 
 const user = {
   state: {
+    info: {
+      appid: '0123456789ABCDEFGHIJKLMNOPQRSTUV',
+      appkey: ''
+    },
     token: getToken(),
     name: '',
     avatar: '',
@@ -12,6 +16,12 @@ const user = {
   },
 
   mutations: {
+    SET_APPID: (state, appid) => {
+      state.appid = appid
+    },
+    SET_APPKEY: (state, appkey) => {
+      state.appkey = appkey
+    },
     SET_TOKEN: (state, token) => {
       state.token = token
     },
@@ -23,6 +33,15 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_USERINFO: (state, info) => {
+      state.info = info
+      if (state.info.commit) {
+        state.info.commit = new Buffer(state.info.commit, 'base64').toString()
+      }
+      if (state.info.company) {
+        state.info.company = new Buffer(state.info.company, 'base64').toString()
+      }
     }
   },
 
@@ -32,17 +51,14 @@ const user = {
       const username = userInfo.username.trim()
       var md5 = crypto.createHash('md5')
       const password = md5.update(userInfo.password).digest('base64')
-      commit('SET_APPKEY', password)
       return new Promise((resolve, reject) => {
         login(username, password)
           .then(response => {
-            // const data = response.data
-            // setToken(data.token)
-            // commit('SET_TOKEN', data.token)
-            console.log(response)
+            commit('SET_USERINFO', response)
             resolve()
           })
           .catch(error => {
+            console.log(error)
             reject(error)
           })
       })
@@ -72,17 +88,9 @@ const user = {
 
     // 登出
     LogOut({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        logout(state.token)
-          .then(() => {
-            commit('SET_TOKEN', '')
-            commit('SET_ROLES', [])
-            removeToken()
-            resolve()
-          })
-          .catch(error => {
-            reject(error)
-          })
+      return new Promise(resolve => {
+        commit('SET_APPKEY', '')
+        resolve()
       })
     },
 

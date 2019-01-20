@@ -1,6 +1,7 @@
 export default {
   route: {
     dashboard: '首页',
+    device: '设备管理',
     introduction: '简述',
     documentation: '文档',
     guide: '引导页',
@@ -83,6 +84,36 @@ export default {
     any: '随便填',
     thirdparty: '第三方登录',
     thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！'
+  },
+  dashboard: {
+    welcome: '祝你开心每一天！',
+    deviceCount: '设备情况'
+  },
+  device: {
+    id: '序号',
+    sn: '设备序列号',
+    state: '在线状态',
+    name: '设备名称',
+    type: '设备类型',
+    area: '设备归属',
+    version: '版本号',
+    operate: '操作',
+    open: '打开',
+    unbind: '解绑',
+    all: '全部',
+    online: '在线',
+    offline: '离线',
+    search: '搜索',
+    export: '导出',
+    fetchDeviceListFailedTips: '查询设备列表失败！',
+    confirmUnbindTitle: '提示',
+    confirmUnbindTips: '此操作将解绑设备, 是否继续?',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    unbindSucceedTips: '解绑成功！',
+    unbindFailedTips: '解绑失败！',
+    cancelUnbindTips: '已取消解绑！',
+    exportFailedTips: '导出失败！'
   },
   documentation: {
     documentation: '文档',

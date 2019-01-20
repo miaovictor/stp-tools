@@ -2,8 +2,6 @@ import Cookies from 'js-cookie'
 
 const app = {
   state: {
-    appid: '0123456789ABCDEFGHIJKLMNOPQRSTUV',
-    appkey: '',
     sidebar: {
       opened: !+Cookies.get('sidebarStatus'),
       withoutAnimation: false
@@ -12,12 +10,6 @@ const app = {
     language: Cookies.get('language') || 'zh'
   },
   mutations: {
-    SET_APPID: (state, appid) => {
-      state.appid = appid
-    },
-    SET_APPKEY: (state, appkey) => {
-      state.appkey = appkey
-    },
     TOGGLE_SIDEBAR: state => {
       if (state.sidebar.opened) {
         Cookies.set('sidebarStatus', 1)
@@ -41,12 +33,6 @@ const app = {
     }
   },
   actions: {
-    setAppID({ commit }, appid) {
-      commit('SET_APPID', appid)
-    },
-    setAppKey({ commit }, appkey) {
-      commit('SET_APPKEY', appkey)
-    },
     toggleSideBar({ commit }) {
       commit('TOGGLE_SIDEBAR')
     },

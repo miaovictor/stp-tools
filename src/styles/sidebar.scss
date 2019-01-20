@@ -1,14 +1,13 @@
 #app {
-
-  // 主体区域
+  // 主体区域 Main container
   .main-container {
     min-height: 100%;
-    transition: margin-left .28s;
+    transition: margin-left 0.28s;
     margin-left: $sideBarWidth;
     position: relative;
   }
 
-  // 侧边栏
+  // 侧边栏 Sidebar container
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
@@ -23,11 +22,8 @@
 
     //reset element-ui css
     .horizontal-collapse-transition {
-      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
-    }
-
-    .el-scrollbar__bar.is-vertical {
-      right: 0px;
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out,
+        0s padding-right ease-in-out;
     }
 
     .scrollbar-wrapper {
@@ -36,6 +32,10 @@
       .el-scrollbar__view {
         height: 100%;
       }
+    }
+
+    .el-scrollbar__bar.is-vertical {
+      right: 0px;
     }
 
     .is-horizontal {
@@ -58,7 +58,7 @@
       width: 100% !important;
     }
 
-    .is-active>.el-submenu__title {
+    .is-active > .el-submenu__title {
       color: #f4f4f5 !important;
     }
   }
@@ -84,7 +84,7 @@
     .el-submenu {
       overflow: hidden;
 
-      &>.el-submenu__title {
+      & > .el-submenu__title {
         padding-left: 10px !important;
 
         .el-submenu__icon-arrow {
@@ -95,8 +95,8 @@
 
     .el-menu--collapse {
       .el-submenu {
-        &>.el-submenu__title {
-          &>span {
+        & > .el-submenu__title {
+          & > span {
             height: 0;
             width: 0;
             overflow: hidden;
@@ -108,7 +108,7 @@
     }
   }
 
-  .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
+  .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
   .sidebar-container .el-submenu .el-menu-item {
     min-width: $sideBarWidth !important;
     background-color: $subMenuBg !important;
@@ -122,14 +122,14 @@
     min-width: $sideBarWidth !important;
   }
 
-  //适配移动端
+  // 适配移动端, Mobile responsive
   .mobile {
     .main-container {
       margin-left: 0px;
     }
 
     .sidebar-container {
-      transition: transform .28s;
+      transition: transform 0.28s;
       width: $sideBarWidth !important;
     }
 
@@ -142,7 +142,6 @@
   }
 
   .withoutAnimation {
-
     .main-container,
     .sidebar-container {
       transition: none;
@@ -151,7 +150,7 @@
 }
 
 .el-menu--vertical {
-  &>.el-menu {
+  & > .el-menu {
     .svg-icon {
       margin-right: 16px;
     }
