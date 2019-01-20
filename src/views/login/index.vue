@@ -1,13 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form
-      ref="loginForm"
-      :model="loginForm"
-      :rules="loginRules"
-      class="login-form"
-      auto-complete="on"
-      label-position="left"
-    >
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
         <h3 class="title">{{ $t('login.title') }}</h3>
         <lang-select class="set-language" />
@@ -17,13 +10,7 @@
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
-        <el-input
-          v-model="loginForm.username"
-          :placeholder="$t('login.username')"
-          name="username"
-          type="text"
-          auto-complete="on"
-        />
+        <el-input v-model="loginForm.username" :placeholder="$t('login.username')" name="username" type="text" auto-complete="on"/>
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
@@ -37,20 +24,12 @@
           auto-complete="on"
           @keyup.enter.native="handleLogin"
         />
-        <span
-          class="show-pwd"
-          @click="showPwd"
-        >
+        <span class="show-pwd" @click="showPwd">
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
       <el-form-item>
-        <el-button
-          :loading="loading"
-          type="primary"
-          style="width:100%;"
-          @click.native.prevent="handleLogin"
-        >
+        <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
           {{ $t('login.logIn') }}
         </el-button>
       </el-form-item>

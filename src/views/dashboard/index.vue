@@ -2,10 +2,7 @@
   <div class="dashboard-container">
     <div class="header-container">
       <div class="left-container">
-        <img
-          src="static/img/avatar.gif"
-          class="user-avatar"
-        >
+        <img src="static/img/avatar.gif" class="user-avatar">
         <div class="info-wrapper">
           <div class="hello">
             <span>{{ userinfo.email + ', ' + $t('dashboard.welcome') }}</span>
@@ -29,6 +26,7 @@
         </div>
       </dir>
     </div>
+    <div class="content-container"/>
   </div>
 </template>
 
@@ -85,7 +83,7 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .dashboard-container {
-  height: 100%;
+  height: calc(100vh - 84px);
   background-color: rgb(240, 242, 245);
   .header-container {
     height: 120px;
@@ -149,6 +147,10 @@ export default {
         }
       }
     }
+  }
+  .content-container {
+    height: 100%;
+    // background-color: rgb(240, 242, 245);
   }
 }
 </style>
