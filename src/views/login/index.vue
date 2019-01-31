@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
+import { isValidEmail } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 
 export default {
@@ -46,7 +46,7 @@ export default {
   components: { LangSelect },
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!isvalidUsername(value)) {
+      if (!isValidEmail(value)) {
         callback(new Error(this.$t('login.validUsernameTips')))
       } else {
         callback()
@@ -98,6 +98,7 @@ export default {
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
             this.loading = false
+            this.$message.error(this.$t('login.loginFailedTips'))
           })
         } else {
           console.log('error submit!!')

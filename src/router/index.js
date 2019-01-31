@@ -47,15 +47,63 @@ export const constantRouterMap = [
       }
     ]
   },
+  // {
+  //   path: '/user',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/user/index'),
+  //       name: 'User',
+  //       meta: { title: 'user', icon: 'user' }
+  //     }
+  //   ]
+  // },
+  {
+    path: '/user',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'User',
+    meta: {
+      title: 'user',
+      icon: 'user'
+    },
+    children: [
+      {
+        path: 'root',
+        component: () => import('@/views/user/root'),
+        name: 'Root',
+        meta: { title: 'rootUser', noCache: true }
+      },
+      {
+        path: 'ram',
+        component: () => import('@/views/user/ram'),
+        name: 'Ram',
+        meta: { title: 'ramUser' }
+      }
+    ]
+  },
   {
     path: '/device',
     component: Layout,
+    redirect: 'noredirect',
+    name: 'Device',
+    meta: {
+      title: 'device',
+      icon: 'camera'
+    },
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/device/index'),
-        name: 'Device',
-        meta: { title: 'device', icon: 'camera' }
+        path: 'list',
+        component: () => import('@/views/device/list'),
+        name: 'List',
+        meta: { title: 'deviceList', noCache: true }
+      },
+      {
+        path: 'monitor',
+        component: () => import('@/views/device/monitor'),
+        name: 'Monitor',
+        meta: { title: 'deviceMonitor' }
       }
     ]
   },

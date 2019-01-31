@@ -17,10 +17,6 @@ service.interceptors.request.use(
     //   config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     // }
 
-    if (config.method === 'post') {
-      config.headers['Content-Type'] = 'application/json'
-    }
-
     var method = config.method.toUpperCase()
     var contentMD5 = ''
     if (config.data) {
@@ -51,8 +47,8 @@ service.interceptors.request.use(
     }
 
     var canonicalString = `${method}\n${contentMD5}\n${contentType}\n${expires}\n${resource}`
-    // console.log(canonicalString)
 
+    var appid = store.getters.appid
     var appkey
     if (config.url === '/v1/login') {
       appkey = config.data.password
@@ -67,7 +63,7 @@ service.interceptors.request.use(
 
     config.params = {
       ...config.params,
-      appid: store.getters.appid,
+      appid: appid,
       expires,
       signature
     }

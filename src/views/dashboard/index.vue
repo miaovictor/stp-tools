@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/device'
+import { scanDevice } from '@/api/device'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -47,7 +47,6 @@ export default {
       'userinfo'
     ])
   },
-
   created() {
     this.getDeviceCount()
   },
@@ -58,7 +57,7 @@ export default {
         limit: 0,
         where: []
       }
-      fetchList(query).then(response => {
+      scanDevice(query).then(response => {
         this.deviceTotalCount = response.tot_result_size
       }).catch(error => {
         console.log(error)
@@ -69,7 +68,7 @@ export default {
         value: 0,
         oper: 'eq'
       })
-      fetchList(query).then(response => {
+      scanDevice(query).then(response => {
         this.deviceOnlineCount = response.tot_result_size
       }).catch(error => {
         console.log(error)
