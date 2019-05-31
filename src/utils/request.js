@@ -110,6 +110,7 @@ service.interceptors.response.use(
     // } else {
     //   return response.data
     // }
+    console.log(response)
     return response.data
   },
   error => {

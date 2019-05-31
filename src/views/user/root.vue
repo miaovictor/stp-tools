@@ -227,12 +227,6 @@ export default {
     },
     onCreateUserClick() {
       this.dialogUserModel = 'create'
-      this.formUser.email = ''
-      this.formUser.password = ''
-      this.formUser.confirmPassword = ''
-      this.formUser.phone = ''
-      this.formUser.company = ''
-      this.formUser.commit = ''
       this.dialogUserVisible = true
     },
     onUpdateUserClick(row) {
@@ -322,6 +316,12 @@ export default {
           createRootUser(this.formUser).then(response => {
             this.dialogUserLoading = false
             this.dialogUserVisible = false
+            this.formUser.email = ''
+            this.formUser.password = ''
+            this.formUser.confirmPassword = ''
+            this.formUser.phone = ''
+            this.formUser.company = ''
+            this.formUser.commit = ''
             this.$message({
               type: 'success',
               message: this.$t('user.createRootUserSucceedTips')
@@ -330,6 +330,8 @@ export default {
           }).catch(error => {
             console.log(error)
             this.$message.error(this.$t('user.createRootUserFailedTips'))
+            this.dialogUserLoading = false
+            this.dialogUserVisible = false
           })
         } else {
           console.log('error submit!!')
@@ -350,6 +352,8 @@ export default {
       }).catch(error => {
         console.log(error)
         this.$message.error(this.$t('user.updateRootUserFailedTips'))
+        this.dialogUserLoading = false
+        this.dialogUserVisible = false
       })
     },
     handleFilter() {
